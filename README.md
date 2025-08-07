@@ -974,7 +974,110 @@ This level of residual correlation is significantly lower than the unhedged aver
 
 Overall, my analysis supports the use of beta-neutral hedging to isolate idiosyncratic return sources. While not fully independent, the residuals offer greater diversification potential than raw returns. For a portfolio manager or risk analyst, this residual analysis provides a clearer lens to assess stock-specific behavior and optimize for uncorrelated alpha.
 
+# Volatility, Trade entry/exit, LSTM forecasting
+
+As discussed earlier, all five stocks exhibit strong and persistent autocorrelation at lower lags that slowly decays toward zero. The autocorrelation patterns suggest that prices are highly serially correlated, particularly over shorter lags, which is common in trending or non-stationary financial time series.
+
+Some banks (e.g., BNS.TO and CM.TO) also show weak periodicity or oscillation in autocorrelation values, which may reflect cyclic patterns or seasonality in their price dynamics.
+
+All five price series fail to reject the null hypothesis of the ADF test, indicating that they are non-stationary in their original form. This suggests that differencing or transformation is required before applying ARIMA, GARCH, or LSTM-based forecasting models.
+
+## Forecasting Canadian Bank Stock Prices Using LSTM (2019–2025)
+
+My Long Short-Term Memory (LSTM) forecasting analysis for the five major Canadian banks—RY.TO (Royal Bank of Canada), TD.TO (Toronto-Dominion Bank), BNS.TO (Scotiabank), BMO.TO (Bank of Montreal), and CM.TO (CIBC), over the period from 2019 to 2025 reveals varying levels of predictive accuracy and pattern capture across institutions. My models were trained on 80% of the historical closing prices and tested on the remaining 20%, with prediction performance evaluated using Root Mean Squared Error (RMSE).
+
+Among the five banks, BNS.TO achieved the most accurate results with a remarkably low RMSE of 1.00, followed closely by CM.TO at 1.36. These outcomes suggest highly predictable price behavior in the testing window, with the model successfully tracking the validation data and adapting to trend shifts and price rebounds. RY.TO also performed well with an RMSE of 2.67, indicating decent model generalization. In contrast, TD.TO and BMO.TO produced higher RMSE values of 3.49 and 3.34 respectively. These deviations were especially notable during periods of rapid price appreciation or heightened volatility, where the model struggled to keep pace with sharp movements.
+
+Visually, the LSTM predictions for BNS.TO and CM.TO align closely with the actual validation data, showing minimal divergence. The forecasted lines almost overlap the true prices, reflecting strong learning of temporal dependencies. In contrast, TD.TO and BMO.TO forecasts slightly lag behind the actuals during upward trends, likely due to the univariate model's inability to capture external catalysts such as interest rate changes, policy shifts, or sector-wide shocks. While the model captures general direction, it underestimates price momentum during peak periods.
+
+All five stocks display similar macro patterns: a steep decline during the early 2020 COVID-19 shock, a recovery phase across 2021-2022, and strong upward price action into 2024-2025. My LSTM architecture, although designed to capture sequence-based patterns, showed varied success in adapting to these longer-term structural shifts.
+
+From a trading perspective, stocks like BNS.TO and CM.TO—with strong forecast alignment and low RMSE—may offer useful signals for short-term entry/exit strategies, especially when combined with volatility filters or trend indicators. The outputs for TD.TO and BMO.TO, while directionally reasonable, warrant caution for trade execution due to noisier predictions. In terms of volatility tracking, the residual errors could serve as a proxy for detecting unpredictable zones or shifts in regime.
+
+While the results are promising, there are clear limitations in using a univariate LSTM model. The exclusion of macroeconomic and sector-level features restricts my model's ability to generalize under unusual conditions. Future improvements could include the incorporation of exogenous variables such as central bank rates, oil prices, or VIX levels. Furthermore, experimenting with bi-directional LSTM or attention mechanisms might enhance long-term pattern recognition. Lastly, adopting walk-forward retraining would allow the model to adapt more fluidly to evolving market conditions.
+
+Overall, my LSTM models offer strong foundations for time series forecasting in Canadian banking equities, particularly when complemented by additional data sources and model enhancements tailored for financial time series volatility and regime shifts.
+
+## Buy or Sell
+
+My trading simulation using a simple 50-day moving average crossover strategy across the five major Canadian banks (RY.TO, TD.TO, BNS.TO, BMO.TO, CM.TO) from 2019 to 2025 reveals several patterns in performance and trade behavior as follow.
+
+There EW Signal Effectiveness and Frequency. Each bank generated a reasonable number of entry and exit signals over the period. The buy/sell logic, buying when price crosses above the 50-day MA and selling when it falls below, triggered a mix of short- and medium-term trades. The signals appear relatively frequent during volatile periods, especially during the 2020-2021 COVID drawdown and recovery.
+
+About the Trade Profitability & Cumulative PnL:
+
+* **RY.TO** showed strong cumulative PnL growth with consistent trend-following behavior. Despite some losses around the COVID crash, its later trades aligned well with upward momentum, leading to a cumulative gain exceeding \$500.
+* **TD.TO** also achieved stable gains with moderate drawdowns. Its cumulative PnL curve showed a significant dip during the 2020 crash but recovered steadily afterward.
+* **BNS.TO** performed well overall, although with some larger drawdowns. The strategy's effectiveness depended on capturing extended rallies, which BNS had during 2021 and 2024-2025.
+* **BMO.TO** experienced the largest drawdown among all five, with a steep early loss affecting cumulative returns. While it recovered partially in the latter half of the period, the strategy showed vulnerability to false signals in choppy markets.
+* **CM.TO** produced modest profits. Its cumulative PnL reflected multiple up-and-down trades, indicating it may be more susceptible to noise under a 50-day MA strategy, possibly requiring a longer smoothing window.
+
+Regarding the Strategy Limitation and Market Context, my strategy assumes equal-sized trades and no transaction costs or slippage. As seen with BMO.TO and CM.TO, whipsaws during sideways markets result in reduced profitability. The fixed moving average period may not adapt well to shifts in volatility or trend strength.
+
+Regarding the Trend Capture and Risk Exposure, overall, my strategy works best in trending environments. Stocks like RY.TO and TD.TO, which demonstrated prolonged bullish movements, were rewarded by the strategy. Meanwhile, names with more erratic or mean-reverting price action (e.g., CM.TO) yielded lower or inconsistent profits.
+
+In conclusion, the 50-day MA crossover strategy is moderately effective across Canadian bank stocks in a long-only context. To improve robustness, enhancements such as volatility filters, adaptive moving averages, or confirmation signals (e.g., volume or RSI thresholds) could help reduce false positives and increase risk-adjusted performance.
+
+# Reinforcement Learning
+
+Based on the visualizations and logs from my Deep Reinforcement Learning portfolio optimization results over 3 episodes using 5 Canadian bank stocks (RY.TO, TD.TO, BNS.TO, BMO.TO, CM.TO), here's a structured analysis:
 
 
+**Summary from Logs:**
+
+| Episode | Final PF Value | Min PF | Max PF | Mean PF | Max Drawdown |
+| ------- | -------------- | ------ | ------ | ------- | ------------ |
+| Before  | 10,250         | 8,799  | 10,437 | 9,620   | 1,344        |
+| 0       | 10,226         | 8,586  | 10,439 | 9,532   | 1,569        |
+| 1       | 10,177         | 8,376  | 10,417 | 9,441   | 1,802        |
+| 2       | 10,173         | 8,371  | 10,414 | 9,439   | 1,808        |
 
 
+**Weight Distributions:**
+
+| Asset  | Before Training | Episode 0 | Episode 1 | Episode 2 |
+| ------ | --------------- | --------- | --------- | --------- |
+| Money  | 0.318           | 0.223     | 0.121     | 0.116     |
+| RY.TO  | 0.138           | 0.159     | 0.173     | 0.172     |
+| TD.TO  | 0.136           | 0.152     | 0.180     | 0.178     |
+| BNS.TO | 0.137           | 0.164     | 0.178     | 0.179     |
+| BMO.TO | 0.135           | 0.154     | 0.180     | 0.179     |
+| CM.TO  | 0.136           | 0.148     | 0.168     | 0.176     |
+
+In this Deep Reinforcement Learning experiment, I evaluated the performance of my portfolio optimization model across three training episodes using five Canadian bank stocks: RY.TO, TD.TO, BNS.TO, BMO.TO, and CM.TO. The results showed consistent stability in final portfolio values, which hovered around $10,200 after each episode. While the model maintained profitability, I observed a noticeable increase in maximum drawdown, which rose from 1,344 before training to 1,808 by the third episode. This suggests that my agent took on greater volatility and risk exposure in pursuit of returns. Additionally, the mean portfolio value showed a modest decline across episodes, indicating that the model may have started to overfit or engage in slightly more aggressive trading behaviors without meaningful improvements in return.
+
+Looking at the final portfolio allocation across episodes, I noticed a clear trend of decreasing cash allocation. Before training, the model held roughly 32 percent in cash, but by episode two, this had dropped to approximately 12 percent. This implies that the agent gained more confidence in being fully invested in the market. Over time, the model also evolved from an even but somewhat random allocation to a more structured and balanced portfolio. By the final episode, weights for each stock converged around 17 to 18 percent, reflecting a learned strategy that spread exposure evenly. Slight preferences emerged for BNS.TO and BMO.TO, which received marginally higher weights—this could indicate that the model detected favorable patterns in their return dynamics.
+
+Throughout training, the evolution of portfolio weights over time suggested healthy convergence. In both episode zero and one, I observed that weights stabilized after approximately 50 time steps. The allocation to cash gradually decreased, while the allocations to the bank stocks moved toward an equal-weighted distribution. Importantly, I did not observe erratic behavior, weight oscillations, or collapse, which confirms that the training dynamics were stable.
+
+Despite this, there were weaknesses in the results. The most significant concern was the rising drawdown over episodes, which suggests that the agent, while reducing cash holdings, began to tolerate greater volatility in search of returns. Additionally, the gains in final portfolio value plateaued despite further training. This could be a result of overly strong regularization, underfitting, or simply a local optimum where the model favored stability over aggressive growth.
+
+To improve the model, I plan to enhance the reward function by incorporating risk-adjusted performance metrics such as the Sharpe or Sortino ratio. This would allow the agent to balance reward with volatility control. I am also considering adding an explicit penalty for excessive drawdowns to curb risk-taking behavior. Training over a longer horizon or increasing the number of episodes beyond three may allow the policy network to generalize better and uncover more profitable strategies. Lastly, integrating macroeconomic indicators such as interest rates or inflation data could provide additional signals to guide the agent's decisions in different regimes.
+
+In conclusion, my reinforcement learning model successfully transitioned from a conservative allocation with heavy cash holdings to a fully invested strategy that balanced exposure across the five bank stocks. The portfolio achieved stable, albeit modest, improvements while gradually assuming more risk. The next phase of refinement will focus on managing this risk-return trade-off more effectively by enhancing the learning signal and incorporating broader contextual information. Let me know if you'd like this version converted into a polished final report or presentation slide content.
+
+Based on the final test evaluation of my Reinforcement Learning (RL) agent using Canadian bank stocks, I observed clear patterns of growth and stability across three comparative strategies: the RL agent, an equiweighted portfolio, and a secure (cash-only) portfolio. All three strategies began with an initial value of \$10,000, and I tracked their portfolio values throughout the test period.
+
+By the end of the test, my RL agent's portfolio value reached approximately \$13,114.57. This was slightly higher than the equiweighted strategy, which ended at \$13,071.74. The secure portfolio, which remained entirely in cash, grew modestly to \$10,264.22 due to the low but steady interest rate applied daily. The similar performance between the RL and equiweighted portfolios suggests that my trained policy closely tracked the broad market trend and possibly learned to mimic diversified exposure patterns that reduce risk and ensure steady growth.
+
+The performance gap between the RL and equiweighted portfolios was small, but the RL strategy edged ahead by a slight margin. This suggests that my model may have optimized allocations just enough to exploit small inefficiencies or advantageous timing in specific asset movements. However, the difference was not dramatic, which could be due to the relatively short training duration, modest number of episodes, or the nature of the Canadian bank stocks, which tend to move in correlated patterns and limit the space for strong alpha generation.
+
+Interestingly, the drawdown analysis returned zero for all three strategies. This suggests that none of the portfolios experienced a significant peak-to-trough decline, implying steady growth during the testing window. While this is ideal from a risk management standpoint, it may also indicate that the test period was relatively favorable for bank stocks and did not include major shocks or market volatility. In more turbulent market conditions, I expect drawdowns to emerge and that will better test the robustness of the RL strategy compared to the benchmarks.
+
+Overall, I am quite satisfied with the result. My agent performed on par with a well-diversified equiweighted strategy while slightly outperforming it. It successfully maintained a stable allocation, avoided excessive risk-taking, and matched the upward trend of its underlying assets. To further improve the strategy, I could experiment with different reward functions, such as using the Sharpe ratio or penalizing variance, to make the model more responsive to downside risk. I could also explore training with a broader set of assets or over longer periods to observe how well the agent generalizes in less stable market environments.
+
+# Final Conclusion
+
+My project provided a comprehensive exploration of forecasting, classification, and optimization techniques applied to Canadian financial markets, specifically focusing on five major Canadian bank stocks. By combining traditional financial analytics with modern machine learning, deep learning, reinforcement learning approaches from both courses CSCI S-278 Applied Quantitative Finance in Machine Learning (main materials) and CSCI S-89 Deep Learning (supporting elements with RNN), I was able to develop actionable models for both short-term predictions and long-term investment strategies. The most impactful extension came from implementing a deep reinforcement learning (DRL) agent for dynamic portfolio allocation. I constructed an end-to-end policy network using TensorFlow 1.x, trained it over several episodes, and benchmarked it against equiweighted and cash-only portfolios. Across validation and test sets, the RL agent consistently matched or slightly outperformed the equiweighted strategy, while significantly outperforming the secure (cash-only) strategy. More importantly, the RL agent demonstrated intelligent weight adjustments-shifting exposure away from cash and allocating more evenly across stocks over time-while maintaining portfolio stability. Although performance gains were modest, the model avoided collapse and exhibited low drawdown during test episodes, indicating strong baseline behavior and convergence.
+
+Using regression models such as SVR and Random Forest, I initially analyzed price-level and return-based relationships between Canadian banks, evaluating stationarity through ADF tests to assess cointegration potential. However, these models struggled with generalization and drift in out-of-sample data, leading me to shift focus toward return-based classification frameworks for outperformance and underperformance prediction relative to the S&P 500. The weekly classifier, enhanced with momentum and volatility features, successfully identified outperformers like BNS.TO with superior cumulative returns, validating the potential of ensemble methods in momentum investing.
+
+The RL implementation added a key optimization layer to my project, moving beyond static or rule-based asset selection into adaptive, policy-driven allocation. It reinforced the strengths of deep learning in financial modeling, especially when aligned with real-world trading constraints like transaction costs and rebalancing penalties. While the agent's learning horizon and architecture could be expanded in future work, this experiment validated the feasibility of applying DRL to real-market data in a risk-aware setting.
+
+In parallel, I applied time series deep learning techniques like RNNs and LSTMs, to develop 1-day-ahead forecast models. These models demonstrated varying levels of accuracy, with LSTMs outperforming simple RNNs in capturing nonlinear dynamics and medium-term patterns. Models for TD.TO and BNS.TO achieved low forecast error, reinforcing the feasibility of neural networks for financial prediction when carefully tuned and regularized.
+
+To mitigate market-wide exposure and isolate idiosyncratic risk, I developed beta-neutral and sector-neutral hedging frameworks, using residual correlation analysis. These methods reduced pairwise correlation from ~0.74 (raw returns) to ~0.40-0.49 (residuals), validating their effectiveness in risk diversification. In parallel, I implemented a moving average crossover trading strategy, which generated buy/sell signals and cumulative PnL for each bank. RY.TO and TD.TO stood out with the most stable and profitable trade curves, whereas others like BMO.TO revealed vulnerabilities during volatile periods.
+
+Finally, I conducted portfolio optimization using Monte Carlo simulation and Sharpe ratio maximization. BMO.TO consistently emerged in the max Sharpe and min volatility portfolios, reinforcing its strong return-risk tradeoff. This holistic integration of classification, forecasting, trading simulation, and risk optimization provided a multi-dimensional understanding of Canadian bank equity behavior. BMO.TO consistently appeared in both the maximum Sharpe and minimum volatility portfolios, showing strong return-risk tradeoffs during the historical period analyzed.
+
+Together, my approaches provided a multi-dimensional view of Canadian bank equity behavior, integrating econometrics, machine learning, deep learning and reinforcement learning. This project not only reinforced my understanding of time series modeling from CSCI S-89 Deep Learning but also helped me develop a practical pipeline that can inform trading strategies, risk assessments, and data-driven investment decisions. In closing, this project unified forecasting, classification, and portfolio optimization under a single research framework. It deepened my understanding of time series modeling and gave me practical experience in deploying ML and DL techniques across diverse financial tasks. In future iterations, I plan to explore macroeconomic conditioning, regime-switching models, and multi-agent reinforcement learning to further enhance adaptability and risk-aware allocation strategies in complex markets. My future work could extend into regime-switching models, macroeconomic factor integration, or reinforcement learning for dynamic asset allocation.
