@@ -297,14 +297,6 @@ In short, my analysis confirms that the original time series are trend-dominated
 
 <img width="1189" height="788" alt="Notebook 2 - Seasonal Decompose - BMO" src="https://github.com/user-attachments/assets/459713bb-75af-420b-8c0a-9d92f6400d3d" />
 
-<img width="1189" height="788" alt="Notebook 2 - Seasonal Decompose - BMS" src="https://github.com/user-attachments/assets/373c018a-d730-44dd-8cc1-a46793ef160e" />
-
-<img width="1189" height="789" alt="Notebook 2 - Seasonal Decompose - CM" src="https://github.com/user-attachments/assets/e81c9bd7-4e65-4c69-a25b-850b64db6be5" />
-
-<img width="1189" height="789" alt="Notebook 2 - Seasonal Decompose - RY" src="https://github.com/user-attachments/assets/8a49a1c6-f6be-4745-b522-8f2701769779" />
-
-<img width="1189" height="789" alt="Notebook 2 - Seasonal Decompose - TD" src="https://github.com/user-attachments/assets/902a11f9-7ccf-44a0-9642-071b79baaf7f" />
-
 Regarding the Multiplicative Decomposition, in a multiplicative model:
 
 $$
@@ -325,18 +317,6 @@ At this point, I can come up with some Strategic Implications. For forecasting o
 
 
 <img width="989" height="390" alt="Notebook 2 - Factionally DIfferenced Series - BMO" src="https://github.com/user-attachments/assets/40ed002e-5481-4879-bc1b-01d1aeaa2f63" />
-
-
-<img width="990" height="390" alt="Notebook 2 - Factionally DIfferenced Series - BNS" src="https://github.com/user-attachments/assets/f7ec1eed-8510-4ad6-8b9d-7f8d5d0a320d" />
-
-
-<img width="990" height="390" alt="Notebook 2 - Factionally DIfferenced Series - CM" src="https://github.com/user-attachments/assets/284d4368-00a6-4db1-b21d-a0a4b353d0da" />
-
-
-<img width="989" height="390" alt="Notebook 2 - Factionally DIfferenced Series - RY" src="https://github.com/user-attachments/assets/920b9e72-a88c-4c89-9713-8c9a0ad780c6" />
-
-
-<img width="990" height="390" alt="Notebook 2 - Factionally DIfferenced Series - TD" src="https://github.com/user-attachments/assets/a69285f2-a3dc-46a2-a70a-d64524a98e94" />
 
 ```
  BMO with Fractional Differencing (d=0.92) 
@@ -440,44 +420,6 @@ And lastly, `f10` joins later, suggesting it captures normalized trend signals o
 <img width="590" height="390" alt="Notebook 3 - Lasso Regression RY alpha 2" src="https://github.com/user-attachments/assets/20e207f4-1849-443c-b284-1a7b6bc0acee" />
 
 
-<img width="590" height="390" alt="Notebook 3 - Lasso Regression RY alpha 0 08" src="https://github.com/user-attachments/assets/028a2975-dfc0-45f6-bc46-35982b378a84" />
-
-
-<img width="589" height="390" alt="Notebook 3 - Lasso Regression TD alpha 0 01" src="https://github.com/user-attachments/assets/2411aae9-74e3-4021-a444-f0ff3f7fa854" />
-
-
-<img width="590" height="390" alt="Notebook 3 - Lasso Regression TD alpha 2" src="https://github.com/user-attachments/assets/45c96eb9-04dc-4c5e-aa20-6fff75ef6fb5" />
-
-
-<img width="590" height="390" alt="Notebook 3 - Lasso Regression TD alpha 0 08" src="https://github.com/user-attachments/assets/8e413643-40a1-476a-bbb5-cb33ffc97d24" />
-
-
-<img width="590" height="390" alt="Notebook 3 - Lasso Regression BNS alpha 0 01" src="https://github.com/user-attachments/assets/8c187b1b-f49a-499a-8564-7ef3d88b186c" />
-
-
-<img width="590" height="390" alt="Notebook 3 - Lasso Regression BNS alpha 2" src="https://github.com/user-attachments/assets/96cc82e8-f356-4215-b88f-9d54386c9767" />
-
-
-<img width="589" height="390" alt="Notebook 3 - Lasso Regression BNS alpha 0 08" src="https://github.com/user-attachments/assets/c90c3107-e1d8-47b5-b0c4-e627cca97f63" />
-
-
-<img width="589" height="390" alt="Notebook 3 - Lasso Regression BMO alpha 0 01" src="https://github.com/user-attachments/assets/83e17402-2177-412e-a63f-4d40e0c069e0" />
-
-
-<img width="590" height="390" alt="Notebook 3 - Lasso Regression BMO alpha 2" src="https://github.com/user-attachments/assets/4990595e-2c9a-422b-b301-8ebe5baca9f2" />
-
-
-<img width="590" height="390" alt="Notebook 3 - Lasso Regression BMO alpha 0 08" src="https://github.com/user-attachments/assets/f2450202-6976-492a-922f-f18e0236b800" />
-
-
-<img width="590" height="390" alt="Notebook 3 - Lasso Regression CM alpha 0 01" src="https://github.com/user-attachments/assets/4ed9db43-92bf-4854-a88e-290048d9fd52" />
-
-
-<img width="590" height="390" alt="Notebook 3 - Lasso Regression CM alpha 2" src="https://github.com/user-attachments/assets/a24408d7-c387-4ab6-9430-7932286a83bc" />
-
-
-<img width="589" height="390" alt="Notebook 3 - Lasso Regression CM alpha 0 08" src="https://github.com/user-attachments/assets/38f75e6c-fd99-4bed-be83-cfebcc811237" />
-
 The `f10` disappear for α=0.08 could be because for all 5 Canadian banks, the top coefficient `f10` (Z-score of close) appears as the dominant predictor when `y = Close` and α is low (0.01) or moderate (2). However, when predicting percentage change (`y = pct_change()`) with α = 0.08, `f10` has no significant influence, and all coefficients are shrunk toward zero.
 
 By looking at the plots, at α = 0.01 or 2 with Close, there are xcellent linear patterns, suggesting `f10` is linearly related to `Close`. I can observe that all predictions are highly accurate (tight diagonal scatter). However, for α = 0.08 with `pct_change()`, there are wide scatter so Lasso is unable to find strong predictors. Feature importances nearly vanish, confirming the poor correlation between engineered features and next-day returns.
@@ -530,19 +472,6 @@ My bar chart clearly shows the relative influence of each feature on PC1. Total 
 
 ### Ridge Regression on Lag Features for 5 Banks
 
-
-<img width="990" height="390" alt="Notebook 3 - Ridge Regression for BMO" src="https://github.com/user-attachments/assets/205a569a-9c9d-4719-8a42-ba59920a186f" />
-
-
-<img width="989" height="390" alt="Notebook 3 - Ridge Regression for BMS" src="https://github.com/user-attachments/assets/02e36f8e-661c-4de7-89d1-a352389e3922" />
-
-
-<img width="989" height="390" alt="Notebook 3 - Ridge Regression for CM" src="https://github.com/user-attachments/assets/413cc442-6307-4b24-b3f5-d5ce64536abb" />
-
-
-<img width="990" height="390" alt="Notebook 3 - Ridge Regression for RY" src="https://github.com/user-attachments/assets/c9c44267-315b-4c37-aa3f-300f42520467" />
-
-
 <img width="990" height="390" alt="Notebook 3 - Ridge Regression for TD" src="https://github.com/user-attachments/assets/ebbb4e20-213c-4985-8c82-8cecb1fd8a4c" />
 
 I used Ridge Regression with lagged price features (`lag_1` to `lag_5`) to predict the daily closing price of Canadian bank stocks: RY, TD, BNS, BMO, CM.
@@ -571,19 +500,9 @@ In short, my Ridge Regression setup is effective, especially for BNS and CM. The
 
 <img width="574" height="432" alt="Notebook 4 - SLM, MLR Residual for TD" src="https://github.com/user-attachments/assets/6c76670a-45ab-44a6-a3dc-b0cbff4a5c59" />
 
-#### BNS
-
-
-<img width="1189" height="590" alt="Notebook 4 - SLM, MLR for BNS" src="https://github.com/user-attachments/assets/67b619f9-ce72-4785-9c73-58e5244a25bf" />
-
-
-<img width="565" height="432" alt="Notebook 4 - SLM, MLR Residual for BNS" src="https://github.com/user-attachments/assets/ab9a3bf8-828c-4a32-a1ac-2af980c2b89d" />
-
 #### RY
 
-
 <img width="1189" height="590" alt="Notebook 4 - SLM, MLR for RY" src="https://github.com/user-attachments/assets/54599498-760a-4159-a3af-a5f3bcbdedb3" />
-
 
 <img width="574" height="432" alt="Notebook 4 - SLM, MLR Residual for RY" src="https://github.com/user-attachments/assets/7ab53fc0-1f6a-4646-8f12-a7b3265474ae" />
 
@@ -758,24 +677,6 @@ In summary, all tested pairs of Canadian bank log returns are cointegrated at a 
 
 <img width="989" height="389" alt="Notebook 5 - Log Prices RY TO vs TD TO" src="https://github.com/user-attachments/assets/8f9c4ae5-fb61-4733-aae5-76ff3b5b9714" />
 
-<img width="989" height="389" alt="Notebook 5 - Log Prices RY TO vs BNS TO" src="https://github.com/user-attachments/assets/1175141e-c6ca-4b2e-a473-10cf9b539eb2" />
-
-<img width="989" height="389" alt="Notebook 5 - Log Prices RY TO vs BMO TO" src="https://github.com/user-attachments/assets/bc037154-0606-4bb3-9a50-dacb0e912473" />
-
-<img width="989" height="389" alt="Notebook 5 - Log Prices RY TO vs CM TO" src="https://github.com/user-attachments/assets/51cd6bab-5959-4885-ba48-750d7b9d595f" />
-
-<img width="989" height="389" alt="Notebook 5 - Log Prices TD TO vs BNS TO" src="https://github.com/user-attachments/assets/fa6000be-7c19-4d22-a779-786fedbf7e7b" />
-
-<img width="989" height="389" alt="Notebook 5 - Log Prices TD TO vs BMO TO" src="https://github.com/user-attachments/assets/7da68acb-f562-4bc7-954f-31bc22f0ca1d" />
-
-<img width="989" height="389" alt="Notebook 5 - Log Prices TD TO vs CM TO" src="https://github.com/user-attachments/assets/609e7e30-6a9e-4245-9258-821dd813e462" />
-
-<img width="989" height="389" alt="Notebook 5 - Log Prices BNS TO vs BMO TO" src="https://github.com/user-attachments/assets/eb91da46-d2e0-47cb-9100-399d950f188d" />
-
-<img width="989" height="389" alt="Notebook 5 - Log Prices BNS TO vs CM TO" src="https://github.com/user-attachments/assets/bc0e0335-f9a6-41ef-825d-4754e7dae382" />
-
-<img width="989" height="389" alt="Notebook 5 - Log Prices BMO TO vs CM TO" src="https://github.com/user-attachments/assets/a02f421c-ca52-4041-907a-525ff3d29191" />
-
 My above analysis involves testing for pairwise cointegration among the **log price series** of Canada's Big Five banks: RBC (RY.TO), TD Bank (TD.TO), Scotiabank (BNS.TO), BMO (BMO.TO), and CIBC (CM.TO). This approach is more conventional than testing on log returns, as cointegration theory typically applies to non-stationary series like price levels. The goal is to determine whether certain bank pairs share a long-term equilibrium relationship despite short-term fluctuations. The Engle-Granger cointegration test was applied to all ten possible unique bank pairs over the period from January 2022 to July 2025, and results were visualized via side-by-side log price plots.
 
 In nearly every plot, there is a strong visual similarity between the two log price series. For example, the plot of **RY.TO vs TD.TO** displays closely aligned trends, both falling in early 2023 and rising sharply throughout 2024 and 2025. The cointegration test returned a p-value of 0.0000, indicating a statistically significant long-run relationship. Similarly, **BMO.TO and CM.TO** track each other quite well across the entire period, especially during recovery phases. This is consistent with expectations, as both banks often exhibit similar business models and risk profiles.
@@ -821,12 +722,6 @@ Strategically, my model is useful for capturing general sector co-movement and c
 <img width="989" height="390" alt="Notebook 5 - Out sample Spread" src="https://github.com/user-attachments/assets/e6dbf1b6-0135-4eff-8a9b-1be42c043d4e" />
 
 <img width="1190" height="489" alt="Notebook 5 - Actual vs Predicted RY Log Price (Out of sample)" src="https://github.com/user-attachments/assets/0a2b75ab-c9df-4b67-a78e-a6a2385f1ad1" />
-
-<img width="990" height="389" alt="Notebook 5 - In sample Spread (BNS - Predicted Basket)" src="https://github.com/user-attachments/assets/441a6e08-b240-44e5-9b0e-f54a8c8e1460" />
-
-<img width="989" height="390" alt="Notebook 5 - Out sample Spread (BNS - Predicted Basket)" src="https://github.com/user-attachments/assets/e2ea3f40-6621-4f3c-a2f0-454157a35864" />
-
-<img width="1190" height="489" alt="Notebook 5 - Actual vs Predicted BNS Log Price (Out of sample)" src="https://github.com/user-attachments/assets/0b6b04a6-14d7-452d-a5bb-aa1a80338064" />
 
 My analysis focuses on modeling RBC's log price (RY.TO) using a multiple linear regression (MLR) approach, where the predictors are the log prices of TD Bank (TD.TO), Scotiabank (BNS.TO), BMO (BMO.TO), and CIBC (CM.TO). My model was trained using data from January 2022 to the end of January 2024, and tested on data from April 2024 to July 2025. My primary goal is to examine whether the predicted RBC price from a linear combination of its peer banks can produce a stable residual spread, indicating potential cointegration or mean-reverting behavior.
 
@@ -1019,23 +914,65 @@ My optimization exercise supports practical applications such as asset allocatio
 
 <img width="989" height="390" alt="RNN - plot 1" src="https://github.com/user-attachments/assets/fc7a9385-0c48-47f2-aedc-e0a95f0bd2ba" />
 
-<img width="989" height="290" alt="RNN - plot 2" src="https://github.com/user-attachments/assets/bb063032-e7f4-466e-9bc3-c6a1acde2747" />
+To enhance my understanding of deep learning for time series data, I developed a Recurrent Neural Network (RNN) forecasting model as part of the course CSCI S-89 Deep Learning. The goal was to perform 1-day-ahead predictions of daily adjusted closing prices for five major Canadian banks: RY.TO, TD.TO, BNS.TO, BMO.TO, and CM.TO. This project served as a practical application of RNN techniques on financial time series, which typically exhibit sequential dependencies and temporal patterns suitable for such architectures.
 
-<img width="989" height="390" alt="RNN - plot 3" src="https://github.com/user-attachments/assets/6d4d03eb-af38-431c-a99e-d9a3efd742a1" />
+I began by downloading adjusted daily closing prices from 2019 to 2024 for the five banks. Each time series was normalized based on the training subset and then transformed into supervised learning format using a sliding window of 60 days. This means the model used the past 60 days of stock prices to predict the next day's price. I trained a simple RNN with one recurrent layer followed by a dense output node. The model was evaluated using MAE and RMSE metrics and tested on the most recent 200 days of each stock.
 
-<img width="989" height="290" alt="RNN - plot 4" src="https://github.com/user-attachments/assets/31c63c20-f869-4f5d-98c3-42b71c0270f7" />
+The prediction plots for RY.TO, TD.TO, CM.TO, and BNS.TO showed good alignment between predicted and actual prices, especially for RY and TD, where the model captured the upward momentum and short-term fluctuations reasonably well. The loss and MAE curves for these tickers indicated smooth convergence within just five epochs, with little overfitting. However, the performance on BMO.TO was significantly worse, with a high RMSE of 23.77 and MAE of 17.60. The predicted series for BMO underestimated the recent price surge and failed to capture the trend, possibly due to model underfitting or sudden price jumps that a simple RNN could not generalize.
 
-<img width="989" height="390" alt="RNN - plot 5" src="https://github.com/user-attachments/assets/8fa158cc-c5c6-4f0c-a587-879878f2fa2d" />
+This exercise highlighted the strength of RNNs in capturing short-term dependencies in financial time series, particularly for moderately volatile stocks like TD and CM. However, it also revealed limitations in modeling high volatility assets such as BMO, suggesting the need for more sophisticated architectures like LSTM or GRU for better handling long-range dependencies and abrupt shifts.
 
+Overall, this RNN forecasting framework helped reinforce concepts from the course and provided a realistic benchmark for time series modeling in financial markets. The structure, training loop, and visualization workflow serve as a solid foundation for future enhancements such as multi-day forecasting, incorporating exogenous features, or extending to more advanced neural architectures.
 
+### RNN ver 2 (One-Day Ahead Forecasting of Canadian Bank Stocks Using LSTM Models)
 
+To deepen my understanding of advanced time series modeling, I implemented LSTM (Long Short-Term Memory) networks to perform 1-day-ahead price forecasts for five major Canadian bank stocks: RY.TO, TD.TO, BNS.TO, BMO.TO, and CM.TO. This work builds upon my prior implementation of simple RNNs and was directly inspired by techniques taught in the CSCI S-89 Deep Learning course, where I explored various architectures suitable for sequential and temporal data.
 
+The primary objective of using LSTM in this context was to improve the model's ability to capture long-term dependencies and nonlinear patterns in financial time series data. Compared to traditional RNNs, LSTMs are better equipped to handle vanishing gradients and preserve information across longer sequences, making them well-suited for stock price forecasting tasks that rely on subtle market memory and trend behaviors.
 
+For each stock, I trained an LSTM model on the past 60 days of normalized adjusted close prices and used it to forecast the next 200 days of prices, one step at a time. The models were trained using two stacked LSTM layers with dropout for regularization, followed by a dense output layer. I monitored both the loss and mean absolute error (MAE) curves to evaluate model convergence and generalization.
 
+The results varied across tickers. For example, TD.TO and BNS.TO yielded relatively low MAE and RMSE scores, indicating strong predictive alignment with actual prices. Visual inspection of their forecast plots confirmed that the models tracked price movements well, especially during trending periods. CM.TO showed moderate accuracy, with smoother predicted curves that followed the general trajectory but missed sharper fluctuations. In contrast, BMO.TO and RY.TO exhibited higher prediction errors, likely due to more volatile price swings and recent trend shifts not fully captured by the training window.
 
+Overall, this experiment validated that LSTM networks can effectively model short-term trends in stock price data, particularly for moderately volatile assets. While the models demonstrated solid performance in predicting directional trends, some lag in price inflection points suggests room for improvement through additional features, longer training histories, or hybrid modeling approaches.
 
+This LSTM-based modeling complements my broader work in time series analysis and portfolio optimization by offering a data-driven approach to tactical forecasting. It provides a foundation for future experimentation with sequence-to-sequence architectures, multivariate inputs, and probabilistic forecasting techniques using advanced deep learning tools.
 
+## Statistical Analysis of Canadian Bank Portfolio Returns (2019–2025) Using the Jarque-Bera Normality Test
 
+My analysis evaluated the distribution of daily returns for a portfolio of five Canadian banks—Royal Bank of Canada (RY.TO), Toronto-Dominion Bank (TD.TO), Bank of Nova Scotia (BNS.TO), Bank of Montreal (BMO.TO), and Canadian Imperial Bank of Commerce (CM.TO) over the period from 2019 to March 2025. Returns were calculated on a daily basis and equally weighted across all five stocks to form a simplified portfolio.
+
+To assess the statistical properties of the portfolio return distribution, the Jarque-Bera test for normality was applied to the most recent 520 trading days (approximately two years) of returns in the training set. The test yielded a p-value of effectively 0.0000, which is well below the standard 5% significance threshold.
+
+This result provides strong statistical evidence that the portfolio's return distribution deviates from normality. Such deviation may be caused by skewness, excess kurtosis, or both, which are common in financial return series. The time series plot of daily returns further confirms this, displaying numerous sharp movements and potential outliers, especially during volatile periods such as the COVID-19 shock in 2020 and regional interest rate fluctuations in later years.
+
+Given the non-normal nature of returns, risk measures that rely on the normality assumption (e.g., parametric Value at Risk) should be applied cautiously. Instead, more robust techniques such as historical simulation, Conditional Value at Risk (CVaR), or models that account for heavy tails and asymmetry (e.g., GARCH or EVT) may be better suited for estimating downside risk in this portfolio.
+
+## Estimating and Visualizing Historical Value at Risk (VaR) and Conditional Value at Risk (CVaR) for a Canadian Bank Portfolio (2019–2025)
+
+My analysis evaluates downside risk exposure of a Canadian bank equity portfolio using two common risk metrics: Value at Risk (VaR) and Conditional Value at Risk (CVaR). My portfolio is equally weighted across five banks—Royal Bank of Canada, Toronto-Dominion Bank, Bank of Nova Scotia, Bank of Montreal, and Canadian Imperial Bank of Commerce—based on test-set returns from March to July 2025.
+
+The 95% historical VaR estimates that under typical conditions, the portfolio would not lose more than approximately 1.2% of its value on 95 out of 100 days. However, on the worst 5% of days, actual losses could be greater. This tail behavior is better captured by the CVaR metric, which estimates the average loss on those worst-case days. The 95% CVaR suggests that, on average, losses during those extreme cases were closer to 3.0% of portfolio value.
+
+The histogram supports this interpretation. The bulk of returns lie to the right of the VaR threshold (marked in blue), with a heavy left tail where loss severity increases. The red dashed line marking CVaR lies further left, indicating that average losses on those worst days are more severe than what VaR alone implies.
+
+Overall, my portfolio exhibits significant left-tail risk. While VaR provides a boundary for expected daily losses under normal conditions, CVaR provides a more comprehensive view of potential exposure during adverse market scenarios. This suggests my need for additional buffers or hedging strategies when managing such portfolios during volatile market periods.
+
+## Detecting Sharp Drops and Predicting Recovery for Canadian Bank Stocks (2019–2025) Using Random Forest and Logistic Regression
+
+# Risk, Hedging
+
+## Beta-Neutral Hedging Analysis for Canadian Bank Stocks Using Ledoit-Wolf Residual Correlation (2019–2025)
+
+Here are my results from the beta-neutral hedge analysis of Canadian bank stocks between 2019 and 2025 reveal meaningful insights about portfolio diversification after accounting for market-wide exposure.
+
+The plot shows the cumulative residual returns of five major Canadian banks—RY.TO, TD.TO, BNS.TO, BMO.TO, and CM.TO—after removing their sensitivity to the TSX Composite Index (^GSPTSE) through linear regression. The residual return paths exhibit more divergence than raw price movements, indicating that much of the original co-movement was driven by market beta rather than firm-specific behavior.
+
+The residual correlation matrix (estimated using the Ledoit-Wolf shrinkage estimator) quantifies the degree of pairwise co-movement remaining in the idiosyncratic components of each stock. Most values fall in the range of 0.30 to 0.50, with the average pairwise residual correlation calculated at approximately 0.4062.
+
+This level of residual correlation is significantly lower than the unhedged average correlation (which was around 0.74 in the earlier raw return correlation matrix), confirming that beta hedging has effectively removed shared exposure to the broader Canadian equity market. However, the remaining correlation above zero implies that bank-specific or sector-specific risks still drive some co-movement among the stocks, likely due to shared business models, economic sensitivity, or regulatory influences.
+
+Overall, my analysis supports the use of beta-neutral hedging to isolate idiosyncratic return sources. While not fully independent, the residuals offer greater diversification potential than raw returns. For a portfolio manager or risk analyst, this residual analysis provides a clearer lens to assess stock-specific behavior and optimize for uncorrelated alpha.
 
 
 
