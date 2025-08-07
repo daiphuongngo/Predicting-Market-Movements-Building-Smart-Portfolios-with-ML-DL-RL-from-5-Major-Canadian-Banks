@@ -416,10 +416,6 @@ And lastly, `f10` joins later, suggesting it captures normalized trend signals o
 
 <img width="590" height="390" alt="Notebook 3 - Lasso Regression RY alpha 0 01" src="https://github.com/user-attachments/assets/d0cf69a3-7536-4994-811f-6a2b872faf67" />
 
-
-<img width="590" height="390" alt="Notebook 3 - Lasso Regression RY alpha 2" src="https://github.com/user-attachments/assets/20e207f4-1849-443c-b284-1a7b6bc0acee" />
-
-
 The `f10` disappear for α=0.08 could be because for all 5 Canadian banks, the top coefficient `f10` (Z-score of close) appears as the dominant predictor when `y = Close` and α is low (0.01) or moderate (2). However, when predicting percentage change (`y = pct_change()`) with α = 0.08, `f10` has no significant influence, and all coefficients are shrunk toward zero.
 
 By looking at the plots, at α = 0.01 or 2 with Close, there are xcellent linear patterns, suggesting `f10` is linearly related to `Close`. I can observe that all predictions are highly accurate (tight diagonal scatter). However, for α = 0.08 with `pct_change()`, there are wide scatter so Lasso is unable to find strong predictors. Feature importances nearly vanish, confirming the poor correlation between engineered features and next-day returns.
@@ -491,14 +487,6 @@ I find that Ridge Regression worked well here as its Lagged Features (`lag_1` to
 In short, my Ridge Regression setup is effective, especially for BNS and CM. The strong R² values and tight fit in prediction plots validate my lag-based features and modeling strategy. Slightly weaker results for TD suggest potential value in modeling returns or volatility rather than raw prices.
 
 ## Single / Multiple Linear Regressions
-
-#### TD
-
-
-<img width="1189" height="590" alt="Notebook 4 - SLM, MLR for TD" src="https://github.com/user-attachments/assets/41cb8507-75c1-4013-b897-25de0a28c5f4" />
-
-
-<img width="574" height="432" alt="Notebook 4 - SLM, MLR Residual for TD" src="https://github.com/user-attachments/assets/6c76670a-45ab-44a6-a3dc-b0cbff4a5c59" />
 
 #### RY
 
@@ -626,9 +614,6 @@ As a result, a total of 65 walk-forward recalibration dates were generated, rang
 
 <img width="1579" height="985" alt="Notebook 4 - Modified Walk Forward" src="https://github.com/user-attachments/assets/4d95b588-9f9e-44ea-ad85-53c6f1e02c4d" />
 
-
-<img width="989" height="390" alt="Notebook 4 - Walk Forward R^2 over time" src="https://github.com/user-attachments/assets/cec8d03d-6e31-49b0-b5d8-6a382b9562de" />
-
 The above walk-forward scatter plots display the relationship between predicted and actual log returns of RBC across multiple monthly recalibration windows. In each subplot, the x-axis represents the predicted out-of-sample log returns, while the y-axis shows the corresponding actual returns. The title of each subplot includes the recalibration date and the R² score for that window, allowing for a quick visual assessment of model performance at each time point.
 
 Upon reviewing these plots, it becomes clear to me that the model's performance varies considerably over time. R² values range from very low, around 0.02 (as seen on November 30, 2020), to as high as 0.81 (on February 28, 2022). High R² values suggest that during certain periods, the model successfully captures short-term comovements between RBC and its peer banks, indicating strong linear relationships. In contrast, low R² scores point to periods where RBC may have moved idiosyncratically, possibly due to company-specific events or where short-term market noise disrupted otherwise stable relationships. These fluctuations indicate that the predictive power of my model is highly context-dependent.
@@ -642,24 +627,6 @@ In conclusion, while my linear walk-forward model provides useful insights durin
 ## Cointegration
 
 <img width="989" height="389" alt="Notebook 5 - Cointegration on returns RY TO and TD TO (p = 0 0000)" src="https://github.com/user-attachments/assets/6d50a2b9-a388-47cf-a896-45b657f3a7c2" />
-
-<img width="989" height="389" alt="Notebook 5 - Cointegration on returns RY TO and BNS TO (p = 0 0000)" src="https://github.com/user-attachments/assets/04f31598-9d83-4604-9244-ad2b0ea0b48d" />
-
-<img width="989" height="389" alt="Notebook 5 - Cointegration on returns RY TO and BMO TO (p = 0 0000)" src="https://github.com/user-attachments/assets/53e3634c-29f5-4cdb-9ca2-bbec30321a48" />
-
-<img width="989" height="389" alt="Notebook 5 - Cointegration on returns RY TO and CM TO (p = 0 0000)" src="https://github.com/user-attachments/assets/be2052de-f540-42bc-9fa6-269755b9fec3" />
-
-<img width="989" height="389" alt="Notebook 5 - Cointegration on returns RY TO and CM TO (p = 0 0000)" src="https://github.com/user-attachments/assets/be2052de-f540-42bc-9fa6-269755b9fec3" />
-
-<img width="989" height="389" alt="Notebook 5 - Cointegration on returns TD TO and BMO TO (p = 0 0000)" src="https://github.com/user-attachments/assets/d2b479c0-cabc-4fde-98cb-2666063019d5" />
-
-<img width="989" height="389" alt="Notebook 5 - Cointegration on returns TD TO and CM TO (p = 0 0000)" src="https://github.com/user-attachments/assets/15661fa9-1b65-4d4e-8b5f-9335c8a6184f" />
-
-<img width="989" height="389" alt="Notebook 5 - Cointegration on returns TD TO and CM TO (p = 0 0000)" src="https://github.com/user-attachments/assets/15661fa9-1b65-4d4e-8b5f-9335c8a6184f" />
-
-<img width="989" height="389" alt="Notebook 5 - Cointegration on returns BNS TO and CM TO (p = 0 0000)" src="https://github.com/user-attachments/assets/1a4e365c-ad84-47e4-9fb1-5c0980fde55d" />
-
-<img width="989" height="389" alt="Notebook 5 - Cointegration on returns BMO TO and CM TO (p = 0 0000)" src="https://github.com/user-attachments/assets/7da1deea-a388-46c6-b217-5bfc7d4f2b39" />
 
 The primary purpose of this code is to analyze the short-term dynamic relationships between the daily log returns of Canada's Big Five banks - RY.TO (RBC), TD.TO (TD), BNS.TO (Scotiabank), BMO.TO (BMO), and CM.TO (CIBC) - using pairwise cointegration tests.
 
@@ -752,20 +719,6 @@ The prediction plot supports these findings. The actual log returns of RY.TO are
 Overall, my analysis demonstrates that return-based modeling is more effective and robust than price-level modeling for predictive tasks involving RY.TO and its peers. Both SVR and Random Forest produced stable and accurate forecasts of returns, with Random Forest showing slightly better in-sample fit and generalization. The stationarity of residuals further validates the modeling approach and supports the suitability of return forecasting in financial applications such as signal generation, short-term portfolio rebalancing, or machine learning-based trading strategies.
 
 ## Strategy Implementation
-
-### Momentum and Defensive Performance Analysis of Canadian Banks Relative to S&P Market Direction
-
-<img width="989" height="490" alt="Notebook 6 - Strategy Implementation - Momentum" src="https://github.com/user-attachments/assets/ca34f0ca-1660-4c89-9a66-4fd1756f3ac1" />
-
-My analysis summarizes how each of Canada's major banks performed relative to the S&P 500 index on days when the market was either rising or falling. The goal is to identify which banks tend to outperform during bullish (up) or bearish (down) sessions, helping guide both momentum and defensive strategy construction.
-
-During S&P up days, BMO.TO showed the strongest relative performance, outperforming the market by an average of 0.057 percent. This indicates that BMO tends to exhibit positive momentum when broader markets are rising. CM.TO and TD.TO also posted modest outperformance on bullish days, suggesting they benefit from risk-on market environments. These stocks may be favorable for momentum-based strategies that seek exposure to rising trends.
-
-On the other hand, when the S&P 500 was in decline, RY.TO emerged as the most resilient bank. It managed to outperform the index by 0.046 percent on down days, indicating strong downside protection. CM.TO also provided a small positive edge during bearish sessions. This resilience suggests both RY.TO and CM.TO are potentially strong candidates for defensive or low-volatility portfolios that seek relative safety during market downturns.
-
-BNS.TO stood out as the weakest performer, underperforming on both up and down days. Its returns fell slightly short of the S&P benchmark in both market conditions, offering no discernible advantage in either momentum or defensive strategy contexts. Investors may consider BNS a neutral or avoid position if seeking tactical outperformance.
-
-Overall, my findings suggest that for momentum-oriented strategies that favor upside participation, BMO.TO and CM.TO are attractive choices. For strategies focused on capital preservation and minimizing drawdowns, RY.TO and CM.TO offer the best downside protection. BNS.TO, lacking relative strength in either scenario, does not present a clear edge and may be deprioritized in active portfolio construction.
 
 ### Relative Return Analysis of Canadian Banks vs TSX: Momentum and Defensive Strategy Insights
 
@@ -940,6 +893,8 @@ This LSTM-based modeling complements my broader work in time series analysis and
 
 ## Statistical Analysis of Canadian Bank Portfolio Returns (2019–2025) Using the Jarque-Bera Normality Test
 
+<img width="630" height="469" alt="Notebook 10 - Jarque Bera" src="https://github.com/user-attachments/assets/59f6c75a-0ee5-4b4f-a8b0-ebb2dbd75839" />
+
 My analysis evaluated the distribution of daily returns for a portfolio of five Canadian banks—Royal Bank of Canada (RY.TO), Toronto-Dominion Bank (TD.TO), Bank of Nova Scotia (BNS.TO), Bank of Montreal (BMO.TO), and Canadian Imperial Bank of Commerce (CM.TO) over the period from 2019 to March 2025. Returns were calculated on a daily basis and equally weighted across all five stocks to form a simplified portfolio.
 
 To assess the statistical properties of the portfolio return distribution, the Jarque-Bera test for normality was applied to the most recent 520 trading days (approximately two years) of returns in the training set. The test yielded a p-value of effectively 0.0000, which is well below the standard 5% significance threshold.
@@ -949,6 +904,8 @@ This result provides strong statistical evidence that the portfolio's return dis
 Given the non-normal nature of returns, risk measures that rely on the normality assumption (e.g., parametric Value at Risk) should be applied cautiously. Instead, more robust techniques such as historical simulation, Conditional Value at Risk (CVaR), or models that account for heavy tails and asymmetry (e.g., GARCH or EVT) may be better suited for estimating downside risk in this portfolio.
 
 ## Estimating and Visualizing Historical Value at Risk (VaR) and Conditional Value at Risk (CVaR) for a Canadian Bank Portfolio (2019–2025)
+
+<img width="630" height="470" alt="Notebook 10 - VaR and CVaR" src="https://github.com/user-attachments/assets/74b5c175-536d-4c6b-98a9-922a3934f726" />
 
 My analysis evaluates downside risk exposure of a Canadian bank equity portfolio using two common risk metrics: Value at Risk (VaR) and Conditional Value at Risk (CVaR). My portfolio is equally weighted across five banks—Royal Bank of Canada, Toronto-Dominion Bank, Bank of Nova Scotia, Bank of Montreal, and Canadian Imperial Bank of Commerce—based on test-set returns from March to July 2025.
 
@@ -963,6 +920,8 @@ Overall, my portfolio exhibits significant left-tail risk. While VaR provides a 
 # Risk, Hedging
 
 ## Beta-Neutral Hedging Analysis for Canadian Bank Stocks Using Ledoit-Wolf Residual Correlation (2019–2025)
+
+<img width="1389" height="590" alt="Notebook 11 - beta hedged PnL vs SPY" src="https://github.com/user-attachments/assets/ae1cdcb7-4711-43d8-9491-9187a6c634d9" />
 
 Here are my results from the beta-neutral hedge analysis of Canadian bank stocks between 2019 and 2025 reveal meaningful insights about portfolio diversification after accounting for market-wide exposure.
 
@@ -984,6 +943,8 @@ All five price series fail to reject the null hypothesis of the ADF test, indica
 
 ## Forecasting Canadian Bank Stock Prices Using LSTM (2019–2025)
 
+<img width="1389" height="1990" alt="Notebook 12 - LSTM Forecast RY TO" src="https://github.com/user-attachments/assets/88644c17-a7a5-41fe-9171-12188dc6f2af" />
+
 My Long Short-Term Memory (LSTM) forecasting analysis for the five major Canadian banks—RY.TO (Royal Bank of Canada), TD.TO (Toronto-Dominion Bank), BNS.TO (Scotiabank), BMO.TO (Bank of Montreal), and CM.TO (CIBC), over the period from 2019 to 2025 reveals varying levels of predictive accuracy and pattern capture across institutions. My models were trained on 80% of the historical closing prices and tested on the remaining 20%, with prediction performance evaluated using Root Mean Squared Error (RMSE).
 
 Among the five banks, BNS.TO achieved the most accurate results with a remarkably low RMSE of 1.00, followed closely by CM.TO at 1.36. These outcomes suggest highly predictable price behavior in the testing window, with the model successfully tracking the validation data and adapting to trend shifts and price rebounds. RY.TO also performed well with an RMSE of 2.67, indicating decent model generalization. In contrast, TD.TO and BMO.TO produced higher RMSE values of 3.49 and 3.34 respectively. These deviations were especially notable during periods of rapid price appreciation or heightened volatility, where the model struggled to keep pace with sharp movements.
@@ -999,6 +960,8 @@ While the results are promising, there are clear limitations in using a univaria
 Overall, my LSTM models offer strong foundations for time series forecasting in Canadian banking equities, particularly when complemented by additional data sources and model enhancements tailored for financial time series volatility and regime shifts.
 
 ## Buy or Sell
+
+<img width="1389" height="790" alt="Notebook 12 - Buy Sell RY TO" src="https://github.com/user-attachments/assets/4382c496-ac31-4b8c-abaf-67736676b069" />
 
 My trading simulation using a simple 50-day moving average crossover strategy across the five major Canadian banks (RY.TO, TD.TO, BNS.TO, BMO.TO, CM.TO) from 2019 to 2025 reveals several patterns in performance and trade behavior as follow.
 
@@ -1022,6 +985,11 @@ In conclusion, the 50-day MA crossover strategy is moderately effective across C
 
 Based on the visualizations and logs from my Deep Reinforcement Learning portfolio optimization results over 3 episodes using 5 Canadian bank stocks (RY.TO, TD.TO, BNS.TO, BMO.TO, CM.TO), here's a structured analysis:
 
+<img width="789" height="435" alt="Notebook 9 - RL - Portfolio evolution (validation set) episode 2" src="https://github.com/user-attachments/assets/e0f6324d-2968-41d4-880a-53d8c035e1eb" />
+
+<img width="565" height="470" alt="Notebook 9 - RL - Portfolio weights (end of validation set) episode 2" src="https://github.com/user-attachments/assets/12ebc709-08ac-46c9-8535-85622b1b0641" />
+
+<img width="809" height="455" alt="Notebook 9 - RL - Portfolio weights over time (episode 2)" src="https://github.com/user-attachments/assets/3a352166-c4bf-49d5-b555-b8838b3a6449" />
 
 **Summary from Logs:**
 
@@ -1055,6 +1023,8 @@ Despite this, there were weaknesses in the results. The most significant concern
 To improve the model, I plan to enhance the reward function by incorporating risk-adjusted performance metrics such as the Sharpe or Sortino ratio. This would allow the agent to balance reward with volatility control. I am also considering adding an explicit penalty for excessive drawdowns to curb risk-taking behavior. Training over a longer horizon or increasing the number of episodes beyond three may allow the policy network to generalize better and uncover more profitable strategies. Lastly, integrating macroeconomic indicators such as interest rates or inflation data could provide additional signals to guide the agent's decisions in different regimes.
 
 In conclusion, my reinforcement learning model successfully transitioned from a conservative allocation with heavy cash holdings to a fully invested strategy that balanced exposure across the five bank stocks. The portfolio achieved stable, albeit modest, improvements while gradually assuming more risk. The next phase of refinement will focus on managing this risk-return trade-off more effectively by enhancing the learning signal and incorporating broader contextual information. Let me know if you'd like this version converted into a polished final report or presentation slide content.
+
+<img width="1023" height="547" alt="Notebook 9 - RL - Portfolio Evolution on Test Set" src="https://github.com/user-attachments/assets/cdeeeb77-e8d7-4eeb-a2da-d6bfba7d678e" />
 
 Based on the final test evaluation of my Reinforcement Learning (RL) agent using Canadian bank stocks, I observed clear patterns of growth and stability across three comparative strategies: the RL agent, an equiweighted portfolio, and a secure (cash-only) portfolio. All three strategies began with an initial value of \$10,000, and I tracked their portfolio values throughout the test period.
 
