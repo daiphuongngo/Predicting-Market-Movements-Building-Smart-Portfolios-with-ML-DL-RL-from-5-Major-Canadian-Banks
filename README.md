@@ -22,7 +22,7 @@ My project **Momentum-Based Prediction and Risk Modeling of Five Big Canadian Ba
 
 ### **2. Dataset and Feature Engineering**
 
-I used weekly price and return data from **January 2020 to July 2024** througout COVID-19 pandemic and post pandemic, collected using the `yfinance` Python package. For each bank, I engineered features such as:
+I used weekly price and return data from **January 2020 to July 2024** througout COVID-19 pandemic and post pandemic, collected using the `yfinance` Python package. For each bank, I had engineered features such as:
 
 * **5-week average return**
 * **10-week rolling volatility**
