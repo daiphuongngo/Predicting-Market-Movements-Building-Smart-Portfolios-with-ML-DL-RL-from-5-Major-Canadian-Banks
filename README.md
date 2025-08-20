@@ -6,7 +6,7 @@
 
 ## **Master, Data Science**
 
-## CSCI S-278 Applied Quantitative Finance in Machine Learning
+## CSCI S-278 Applied Quantitative Finance in Machine Learning (Python)
 
 ## Name: **Dai Phuong Ngo (Liam)**
 
