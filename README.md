@@ -199,7 +199,7 @@ There is clearly high volatility as the model predicted direction well but under
 
 #### Bank of Nova Scotia (BNS)
 
-There is smooth tracking as predicted series aligns very closely with actual prices. But there is moderate variance that slight smoothing was noticed, but trend detection is reliable considerably.
+There is smooth tracking as predicted series aligns very closely with the actual prices. But there is moderate variance that slight smoothing was noticed, but trend detection is reliable considerably.
 
 #### Bank of Montreal (BMO)
 
