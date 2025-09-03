@@ -37,7 +37,7 @@ I created binary classification labels based on the **weekly excess return over 
 * **Outperformer** if the bank’s return exceeded the S\&P 500 by **0.3% or more**
 * **Underperformer** if the bank underperformed the S\&P 500 by **1.0% or more**
 
-These thresholds helped me focus the model on meaningful momentum signals and reduce noise.
+These thresholds helped me focus the model on meaningful momentum signals and reduce noise and outliers.
 
 ### **4. Models and Architectures**
 
