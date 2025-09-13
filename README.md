@@ -66,8 +66,8 @@ My results later showed:
 
 I used my model predictions for these as follows:
 
-* The Outperforming portfolio achieved a cumulative return of 10.34×, versus 4.10× for the S\&P 500, reflecting +152% relative outperformance
-* The Underperforming portfolio returned 0.39×, underperforming the S\&P’s 0.68×, validating model weakness in short signals
+* The Outperforming portfolio achieved a cumulative return of 10.34×, versus 4.10× for the S\&P 500, reflecting +152% relative outperformance.
+* The Underperforming portfolio returned 0.39×, underperforming the S\&P’s 0.68×, validating model weakness in short signals.
 
 These results suggest the long momentum signal is more reliable under this framework.
 
