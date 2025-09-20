@@ -191,7 +191,7 @@ Now I will analyze individual bank's performance:
 
 #### Royal Bank of Canada (RY)
 
-It shows the best performance as the model captured long-term upward momentum with very low deviation. As tracking the patterns, I found that both short-term corrections and rebounds are well modeled. This illustrates that RY’s stability and consistent trend made it ideal for LSTM forecasting.
+It shows the best performance as the model captured long-term upward momentum with very low deviation. As tracking the patterns, I found that both short-term corrections and rebounds are well modelled. This illustrates that RY’s stability and consistent trend made it ideal for LSTM forecasting.
 
 #### Toronto-Dominion Bank (TD)
 
