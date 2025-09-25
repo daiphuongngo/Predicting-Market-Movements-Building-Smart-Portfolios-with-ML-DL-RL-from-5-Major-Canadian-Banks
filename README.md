@@ -211,7 +211,7 @@ There is volatility capture here as the model reasonably followed the swings but
 
 There are model strengths and limitations that I would need to put into considetaion.
 
-Regarding strengths, when conducting non-linear modeling, I see that LSTM is adept at capturing lagged dependencies and nonlinear price movements. It has shownsequential memory which is ideal for time series with seasonality or repeating patterns like the banking cycles. Its predictions are relatively smooth which help remove noise while preserving trends.
+Regarding strengths, when conducting non-linear modeling, I see that LSTM is adept at capturing lagged dependencies and nonlinear price movements. It has shownsequential memory which is ideal for time series with seasonality, or repeating patterns like the banking cycles. Its predictions are relatively smooth which help remove noise while preserving trends.
 
 However, there are certainly limitations. I observe over-smoothing as LSTM tends to flatten out rapid swings due to training loss minimization (MSE). When
 data sensitivity, aspects of scaling, window size and test horizon significantly impact results. Therefore, LSTM does not offer interpretable coefficients like linear models, particularly CAPM.
